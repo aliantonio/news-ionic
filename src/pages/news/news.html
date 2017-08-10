@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>News</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let newsArticle of results" (click)="openUrl(newsArticle.data.url, $event)">
+      <h2 class="noWhiteSpace">{{ newsArticle.data.title }}</h2>
+      <span (click)="openURL('http://www.reddit.com' + newsArticle.data.permalink);$event.stopPropagation();">
+        <i class="ion-md-arrow-up"></i>
+        <span class="comments">{{newsArticle.data.score | number:0}}</span>
+        <i class="icon ion-md-chatboxes"></i> 
+        <span class="comments">{{newsArticle.data.num_comments | number:0}}</span>
+        <i class="ion-md-star" aria-hidden="true" *ngIf="newsArticle.data.gilded > 0"></i>
+        <span class="comments" *ngIf="newsArticle.data.gilded > 0">x{{newsArticle.data.gilded}}</span>
+      </span>
+    </button>  
+  </ion-list>
+</ion-content>
