@@ -12,11 +12,11 @@
     <button ion-item *ngFor="let newsArticle of results" (click)="openUrl(newsArticle.data.url, $event)">
       <h2 class="noWhiteSpace">{{ newsArticle.data.title }}</h2>
       <span (click)="openURL('http://www.reddit.com' + newsArticle.data.permalink);$event.stopPropagation();">
-        <i class="ion-md-arrow-up"></i>
+        <ion-icon name="arrow-up"></ion-icon>
         <span class="comments">{{newsArticle.data.score | number:0}}</span>
-        <i class="icon ion-md-chatboxes"></i> 
+        <ion-icon name="text"></ion-icon>
         <span class="comments">{{newsArticle.data.num_comments | number:0}}</span>
-        <i class="ion-md-star" aria-hidden="true" *ngIf="newsArticle.data.gilded > 0"></i>
+        <ion-icon name="star" *ngIf="newsArticle.data.gilded > 0"></ion-icon>
         <span class="comments" *ngIf="newsArticle.data.gilded > 0">x{{newsArticle.data.gilded}}</span>
       </span>
     </button>  

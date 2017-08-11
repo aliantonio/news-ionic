@@ -76,6 +76,8 @@ export class NewsPage {
   }
 
   openUrl(url, event) {
+    console.log('url', url);
+    event.stopPropagation();
     event.preventDefault();
     window.open(url, '_system', 'location=yes');
   }
