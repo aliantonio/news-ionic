@@ -5,7 +5,15 @@ import { HttpModule } from '@angular/http'
 
 import { MyApp } from './app.component';
 import { NewsPage } from '../pages/news/news';
-import { ListPage } from '../pages/list/list';
+import { WorldNewsPage } from '../pages/world-news/world-news';
+import { PoliticsPage } from '../pages/politics/politics';
+import { NjNewsPage } from '../pages/nj-news/nj-news';
+import { EspnPage } from '../pages/espn/espn';
+import { TechPage } from '../pages/tech/tech';
+import { AndroidPage } from '../pages/android/android';
+import { PallonePage } from '../pages/pallone/pallone';
+import { DateFormatPipe } from '../pipes/date-format/date-format';
+import { FilterPipe } from '../pipes/filter/filter';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,7 +23,15 @@ import { LoadingProvider } from '../providers/loading/loading';
   declarations: [
     MyApp,
     NewsPage,
-    ListPage
+    WorldNewsPage,
+    PoliticsPage,
+    NjNewsPage,
+    EspnPage,
+    TechPage,
+    AndroidPage,
+    PallonePage,
+    DateFormatPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -26,7 +42,13 @@ import { LoadingProvider } from '../providers/loading/loading';
   entryComponents: [
     MyApp,
     NewsPage,
-    ListPage
+    WorldNewsPage,
+    PoliticsPage,
+    NjNewsPage,
+    EspnPage,
+    TechPage,
+    AndroidPage,
+    PallonePage
   ],
   providers: [
     StatusBar,

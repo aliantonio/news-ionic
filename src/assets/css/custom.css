@@ -58,9 +58,9 @@
      background-color: #303030 !important;
  }
  
- #politics img, #android img {
-     max-width: 70px !important;
-     max-height: 40px !important;
+ img {
+     max-width: 80px !important;
+     max-height: 50px !important;
  }
  
  .scroll-refresher .ionic-refresher-content {color: #fff;}

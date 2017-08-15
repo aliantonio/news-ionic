@@ -8,12 +8,13 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
-  selector: 'page-news',
-  templateUrl: 'news.html'
+  selector: 'page-pallone',
+  templateUrl: 'pallone.html',
 })
-export class NewsPage {
+export class PallonePage {
 
   results: string[];
+  appendUrl = '?rss_url=https%3A%2F%2Fpallone.house.gov%2Frss.xml';
 
   constructor(public navCtrl: NavController, private http: Http, private load: LoadingProvider) {
 
@@ -22,7 +23,7 @@ export class NewsPage {
 
     // subscribe to articles
     this.subscribeToArticles();
-
+    
   }
 
   public subscribeToArticles() {
@@ -30,8 +31,8 @@ export class NewsPage {
       .subscribe(
         // success
         data => {
-          console.log('/r/news results:', data['data'].children);
-          this.results = data['data'].children;
+          console.log('pallone results:', data['items']);
+          this.results = data['items'];
           this.load.hide();
         },
         // error
@@ -44,8 +45,8 @@ export class NewsPage {
 
   fetchArticles() {
     // make the HTTP request
-    console.log('fetching articles from /r/news');
-    return this.http.get('https://pay.reddit.com/r/news/.json')
+    console.log('fetching articles from pallone');
+    return this.http.get('http://api.rss2json.com/v1/api.json' + this.appendUrl)
       .do(this.logResponse)
       .map(this.extractData)
       .catch(this.catchError)
@@ -73,5 +74,5 @@ export class NewsPage {
     this.subscribeToArticles();
     refresher.complete();
   }
-  
+
 }

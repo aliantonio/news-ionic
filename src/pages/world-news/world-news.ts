@@ -8,10 +8,10 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
-  selector: 'page-news',
-  templateUrl: 'news.html'
+  selector: 'page-world-news',
+  templateUrl: 'world-news.html',
 })
-export class NewsPage {
+export class WorldNewsPage {
 
   results: string[];
 
@@ -24,13 +24,13 @@ export class NewsPage {
     this.subscribeToArticles();
 
   }
-
+  
   public subscribeToArticles() {
     this.fetchArticles()
       .subscribe(
         // success
         data => {
-          console.log('/r/news results:', data['data'].children);
+          console.log('/r/worldnews results:', data['data'].children);
           this.results = data['data'].children;
           this.load.hide();
         },
@@ -44,8 +44,8 @@ export class NewsPage {
 
   fetchArticles() {
     // make the HTTP request
-    console.log('fetching articles from /r/news');
-    return this.http.get('https://pay.reddit.com/r/news/.json')
+    console.log('fetching articles from /r/worldnews');
+    return this.http.get('https://pay.reddit.com/r/worldnews/.json')
       .do(this.logResponse)
       .map(this.extractData)
       .catch(this.catchError)
@@ -73,5 +73,5 @@ export class NewsPage {
     this.subscribeToArticles();
     refresher.complete();
   }
-  
+
 }

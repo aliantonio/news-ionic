@@ -4,7 +4,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { NewsPage } from '../pages/news/news';
-import { ListPage } from '../pages/list/list';
+import { WorldNewsPage } from '../pages/world-news/world-news';
+import { PoliticsPage } from '../pages/politics/politics';
+import { NjNewsPage } from '../pages/nj-news/nj-news';
+import { EspnPage } from '../pages/espn/espn';
+import { TechPage } from '../pages/tech/tech';
+import { AndroidPage } from '../pages/android/android';
+import { PallonePage } from '../pages/pallone/pallone';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +28,13 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'News', component: NewsPage },
-      { title: 'World News', component: ListPage }
+      { title: 'World News', component: WorldNewsPage },
+      { title: 'Politics', component: PoliticsPage },
+      { title: 'NJ News', component: NjNewsPage },
+      { title: 'ESPN', component: EspnPage },
+      { title: 'Technology', component: TechPage },
+      { title: 'Android', component: AndroidPage },
+      { title: 'Pallone', component: PallonePage }
     ];
 
   }

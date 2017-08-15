@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>News</ion-title>
+    <ion-title>Politics</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,6 +14,9 @@
   <ion-list>
     <ion-searchbar #searchInput name="query" [(ngModel)]="query"></ion-searchbar>
     <ion-item *ngFor="let newsArticle of results | filter : query : 'reddit'" (click)="openUrl(newsArticle.data.url)">
+      <ion-thumbnail item-start>
+        <img *ngIf="newsArticle.data.thumbnail != 'self' && newsArticle.data.thumbnail != 'default'" [src]="newsArticle.data.thumbnail">
+      </ion-thumbnail>
       <h2 class="noWhiteSpace">{{ newsArticle.data.title }}</h2>
       <span (click)="openUrl('http://www.reddit.com' + newsArticle.data.permalink);$event.stopPropagation();">
         <ion-icon name="arrow-up"></ion-icon>
