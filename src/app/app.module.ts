@@ -18,6 +18,7 @@ import { FilterPipe } from '../pipes/filter/filter';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoadingProvider } from '../providers/loading/loading';
+import { AlertProvider } from '../providers/alert/alert';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { LoadingProvider } from '../providers/loading/loading';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LoadingProvider
+    LoadingProvider,
+    AlertProvider
   ]
 })
 export class AppModule {}

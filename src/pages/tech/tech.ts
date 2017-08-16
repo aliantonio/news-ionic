@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http, Response } from '@angular/http';
 import { LoadingProvider } from '../../providers/loading/loading'
+import { AlertProvider } from '../../providers/alert/alert'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
@@ -16,7 +17,7 @@ export class TechPage {
   results: string[];
   appendUrl = '?rss_url=https%3A%2F%2Ftechcrunch.com%2Ffeed%2F';
 
-  constructor(public navCtrl: NavController, private http: Http, private load: LoadingProvider) {
+  constructor(public navCtrl: NavController, private http: Http, private load: LoadingProvider, private alert: AlertProvider) {
 
     // show loading module
     this.load.show();
@@ -39,6 +40,7 @@ export class TechPage {
         err => {
           this.load.hide();
           console.error('Something went wrong!');
+          this.alert.showAlert();
         }
       );
   }
@@ -47,6 +49,7 @@ export class TechPage {
     // make the HTTP request
     console.log('fetching articles from tech crunch');
     return this.http.get('http://api.rss2json.com/v1/api.json' + this.appendUrl)
+      .timeout(10000)
       .do(this.logResponse)
       .map(this.extractData)
       .catch(this.catchError)

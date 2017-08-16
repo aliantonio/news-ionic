@@ -20,7 +20,7 @@
      background-color: #424242;
  }
  
- .item, h2 {
+ .item, .item-inner h2 {
      text-overflow: unset !important;
      white-space: normal !important;
      color: #fff;
