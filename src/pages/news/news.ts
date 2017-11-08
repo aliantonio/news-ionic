@@ -48,7 +48,7 @@ export class NewsPage {
     // make the HTTP request
     console.log('fetching articles from /r/news');
     return this.http.get('https://pay.reddit.com/r/news/.json')
-      .timeout(10000)
+      .timeout(100)
       .do(this.logResponse)
       .map(this.extractData)
       .catch(this.catchError)
